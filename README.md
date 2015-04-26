@@ -26,7 +26,7 @@ For 1. I define two functions "addColNames" and "addForeignVar", then performing
 for 2. I create a string with words i want to match in the colnames, then i call grep to generate a list of matched columns, if you debug the script and inspect the "matchedCols" variable you will see a list of unique column names that matched, not indices. After creating the matched list i merely filter the dataframe. For some reason there is a bug with this method where the string "mean()" will match to "meanFreq()". So the line:
 
 <!-- -->
- df.complete <- df.complete[, -grep("Freq", colnames(df.complete))]
+	df.complete <- df.complete[, -grep("Freq", colnames(df.complete))]
 
 removes the meanFreq() matches.
 
