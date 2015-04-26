@@ -1,12 +1,16 @@
 run_analysis <- function() {
   
   addColNames <- function(dataframe, dataset_column_names) {
+    #takes loaded dataframe, string of text file, than replaces column names in loaded dataframe
+    #with column in text file. Hardcoded particular to this assignment for time
     dfColNames <- read.table(dataset_column_names, header=F)
     colnames(dataframe) <- dfColNames[,2]
     dataframe
   }
   
   addForeignVar <- function(dataframe, foreign_dataset, column_index, colname) {
+    #takes two datasets, a column index as int, and a string for column name then grabs the column
+    #at column_index from foreign_dataset and adds it to dataframe as colname
     df_foreign <- read.table(foreign_dataset, header=F)
     dataframe[, colname] <- df_foreign[, column_index]
     dataframe
